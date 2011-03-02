@@ -42,7 +42,7 @@ else:
 
 state.set(status=state_success) ## until proven otherwise
 
-send_from_address = sender.getProperty('email')
+send_from_address = sender.getProperty('email') or REQUEST.get('email')
 
 if send_from_address == '':
     # happens if you don't exist as user in the portal (but at a higher level)
@@ -51,7 +51,10 @@ if send_from_address == '':
     plone_utils.addPortalMessage(_(u'Could not find a valid email address'), 'error')
     return state.set(status=state_failure)
     
-sender_id = "%s (%s), %s" % (sender.getProperty('fullname'), sender.getId(), send_from_address)
+if mtool.isAnonymousUser():
+    sender_id = send_from_address
+else:
+    sender_id = "%s (%s), %s" % (sender.getProperty('fullname'), sender.getId(), send_from_address)
 
 host = context.MailHost # plone_utils.getMailHost() (is private)
 encoding = portal.getProperty('email_charset')

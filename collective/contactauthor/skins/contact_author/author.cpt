@@ -211,6 +211,30 @@
                                 tal:content="request/message|nothing"
                                 ></textarea>
                     </div>
+
+                    <div class="field"
+                      tal:define="error errors/email|nothing"
+                      tal:attributes="class python:test(error, 'field error', 'field')"
+					  tal:condition="isAnon">
+					  	
+                      <label for="email" i18n:translate="label_email">
+                        Email
+                      </label>
+
+                      <span class="fieldRequired" title="Required"
+                              i18n:attributes="title email_required;"
+                              i18n:translate="label_required">(Required)</span>
+
+		              <div tal:content="error">Validation error output</div>
+
+                      <input type="text" 
+                             id="email" 
+                             name="email" 
+                             size="25" 
+                             value="" 
+                             tal:attributes="value request/email|nothing"
+                             />
+                    </div>
         
 					<tal:block tal:condition="isAnon" tal:replace="structure context/@@captcha/image_tag"/>
 		

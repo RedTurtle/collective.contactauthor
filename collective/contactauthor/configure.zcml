@@ -9,7 +9,7 @@
   <include package="collective.recaptcha" />
 
   <!-- File System Directory Views registration -->
-  <cmf:registerDirectory name="ospfe_portale_core"/>
+  <cmf:registerDirectory name="contact_author"/>
 
   <genericsetup:registerProfile
       name="default"
