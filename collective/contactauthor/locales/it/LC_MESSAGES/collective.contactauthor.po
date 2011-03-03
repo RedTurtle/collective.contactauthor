@@ -19,7 +19,7 @@ msgstr ""
 #. Default: "Copy the words you see in the image below in the proper field. This step is needed for protect this form by spam and improper use."
 #: ../skins/contact_author/author.cpt:248
 msgid "help_captcha"
-msgstr "Copia le parole che vedi nell'immagine sottostante nell'apposito campo. questo passo è richiesto per protegere il modulo da abusi e messaggi di spam."
+msgstr "Copia le parole che vedi nell'immagine sottostante nell'apposito campo. Questo passo è richiesto per proteggere il modulo da abusi e messaggi di spam."
 
 #. Default: "Spam protection"
 #: ../skins/contact_author/author.cpt:240
