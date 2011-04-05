@@ -236,7 +236,7 @@
                              />
                     </div>
         
-					<div class="field">
+					<div class="field" tal:condition="isAnon">
 						<label for="recaptcha_response_field"
 						       i18n:domain="collective.contactauthor"
 						       i18n:translate="label_captcha">
@@ -251,7 +251,9 @@
 							Copy the words you see in the image below in the propert field.
 							This step is needed for protect this form by spam and improper use.
 						</div>
-						<tal:block tal:condition="isAnon" tal:replace="structure context/@@captcha/image_tag"/>
+						<tal:block tal:replace="structure context/@@captcha/image_tag"
+						           tal:on-error="structure string:&lt;strong&gt;CAPTCHA NOT CONFIGURED&lt;/strong&gt;"
+						           />
 					</div>
 		
                     <div class="formControls">
