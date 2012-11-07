@@ -6,7 +6,7 @@ version = '0.1.1'
 setup(name='collective.contactauthor',
       version=version,
       description="A very simple customization for Plone author form, where anonymous user can send message to authors, with captcha protection",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
