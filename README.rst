@@ -30,7 +30,7 @@ The given anonymous email can be unexistent (or the someone else ones).
 Dependencies
 ============
 
-This product has been tested on Plone 3.3 (feedback on Plone 4 tests are welcome)
+This product has been tested on Plone 3.3 and Plone 4.2
 
 Credits
 =======
