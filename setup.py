@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1.1'
+version = '1.0.0'
 
 setup(name='collective.contactauthor',
       version=version,
@@ -12,6 +12,9 @@ setup(name='collective.contactauthor',
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone :: 3.3",
+        "Framework :: Plone :: 4.0",
+        "Framework :: Plone :: 4.2",
         "Programming Language :: Python",
         ],
       keywords='plone plonegov captcha author e-mail contact',

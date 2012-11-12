@@ -72,7 +72,10 @@ variables = {'send_from_address' : send_from_address,
 
 try:
     message = context.author_feedback_template(context, **variables)
-    result = host.secureSend(message, send_to_address, envelope_from, subject=subject, subtype='plain', charset=encoding, debug=False, From=send_from_address)
+
+    result = host.send(message, send_to_address, send_from_address,
+                       subject=subject, charset=encoding)
+#    result = host.secureSend(message, send_to_address, envelope_from, subject=subject, subtype='plain', charset=encoding, debug=False, From=send_from_address)
 except ConflictError:
     raise
 except: # TODO Too many things could possibly go wrong. So we catch all.
