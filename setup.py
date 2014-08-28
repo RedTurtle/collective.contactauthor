@@ -5,9 +5,9 @@ version = '1.0.1.dev0'
 
 setup(name='collective.contactauthor',
       version=version,
-      description="A very simple customization for Plone author form, where anonymous user can send message to authors, with captcha protection",
+      description="A customization for Plone author form: anonymous users can send message to authors with captcha protection",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
@@ -15,11 +15,12 @@ setup(name='collective.contactauthor',
         "Framework :: Plone :: 3.3",
         "Framework :: Plone :: 4.0",
         "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
       keywords='plone plonegov captcha author e-mail contact',
       author='RedTurtle Technology',
-      author_email='sviluppoplone@redturtle.net',
+      author_email='sviluppoplone@redturtle.it',
       url='http://plone.org/products/collective.contactauthor',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
