@@ -12,7 +12,7 @@ REQUEST=context.REQUEST
 
 from Products.CMFPlone.utils import transaction_note
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone import PloneMessageFactory as _
+from Products.CMFPlone import PloneMessageFactory as pmf
 from ZODB.POSException import ConflictError
 
 ## This may change depending on the called (portal_feedback or author)
@@ -48,7 +48,7 @@ if send_from_address == '':
     # happens if you don't exist as user in the portal (but at a higher level)
     # or if your memberdata is incomplete.
     # Would be nicer to check in the feedback form, but that's hard to do securely
-    plone_utils.addPortalMessage(_(u'Could not find a valid email address'), 'error')
+    plone_utils.addPortalMessage(pmf(u'Could not find a valid email address'), 'error')
     return state.set(status=state_failure)
     
 if mtool.isAnonymousUser():
@@ -80,7 +80,7 @@ except ConflictError:
     raise
 except: # TODO Too many things could possibly go wrong. So we catch all.
     exception = plone_utils.exceptionString()
-    message = _(u'Unable to send mail: ${exception}',
+    message = pmf(u'Unable to send mail: ${exception}',
                 mapping={u'exception' : exception})
     plone_utils.addPortalMessage(message, 'error')
     return state.set(status=state_failure)
@@ -92,5 +92,5 @@ transaction_note(tmsg)
 REQUEST.set('message', None)
 REQUEST.set('subject', None)
 
-plone_utils.addPortalMessage(_(u'Mail sent.'))
+plone_utils.addPortalMessage(pmf(u'Mail sent.'))
 return state

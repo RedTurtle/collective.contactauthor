@@ -1,11 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.1.dev0'
+version = '1.1.0.dev0'
 
 setup(name='collective.contactauthor',
       version=version,
-      description="A customization for Plone author form: anonymous users can send message to authors with captcha protection",
+      description="A customization for Plone author form: anonymous users can "
+                  "send message to authors with captcha protection",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
@@ -30,6 +31,7 @@ setup(name='collective.contactauthor',
       install_requires=[
           'setuptools',
           'collective.recaptcha',
+          'plone.app.registry',
       ],
       entry_points="""
       # -*- Entry points: -*-

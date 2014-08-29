@@ -1,16 +1,23 @@
 Introduction
 ============
 
-A simple Plone customization for the "*Contact the author*" form.
+A Plone customization for the "*Contact the author*" form.
 
 Normally in Plone only authenticated member can send internal messages to the author. This product open
 the form also to anonymous users.
 
-When anonymous try to contact an author, they *must* provide also an email address and a captcha protection
+When anonymous try to contact an author, they must provide also an email address and a captcha protection
 value.
 
 .. image:: http://keul.it/images/plone/collective.contactauthor-0.1.0.png
    :alt: How the form looks like
+
+Please note that access to the ``author`` page is still guarded by the Plone setting
+"*Allow anyone to view 'about' information*" in the "*Security settings*" control panel.
+
+You can still edit the contact author configuration from the new "*Contact author settings*" to change
+this behavior. You can restore Plone default (where users must be authenticated) or freely enable it
+to all anoymous users (this can be dangerous... this option is only provided for some intranet purpose).
 
 Form protection
 ---------------

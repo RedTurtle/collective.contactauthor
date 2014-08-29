@@ -39,7 +39,13 @@
                                 here_url context/@@plone_context_state/object_url;
                                 member context/@@plone_portal_state/member;
                                 portal context/@@plone_portal_state/portal;
-                                email_from_address portal/email_from_address">
+                                email_from_address portal/email_from_address;
+								contactauthor_settings nocall:portal/@@contactauthor-status;
+								protection_level contactauthor_settings/protection_level;
+								security_anon_with_captcha python:protection_level=='anon-with-captcha';
+								security_free_for_all python:protection_level=='free-for-all';
+								security_authenticated_only python:protection_level=='authenticated-only';
+								">
 
         <tal:noAuthor condition="not: authorinfo">
             <dl class="portalMessage error">
@@ -159,7 +165,7 @@
 
                     <tal:mailsetup tal:condition="python:email_from_address and authorinfo['has_email']">
 
-                        <!--div class="formControls" tal:condition="isAnon">
+                        <div class="formControls" tal:condition="python:isAnon and security_authenticated_only">
                         <form
                           tal:define="pss modules/Products/PythonScripts/standard"
                           tal:attributes="action string:$portal_url/login">
@@ -169,12 +175,12 @@
                                i18n:attributes="value label_login_to_send_feedback;"
                                />
                         </form>
-                        </div-->
+                        </div>
 
                         <!-- feedback form -->
 
 
-                        <tal:owner tal:condition="python: not isOwner">
+                        <tal:owner tal:condition="python: not isOwner and (not isAnon and member.getProperty('email') or not security_authenticated_only)">
                             <p class="discreet"
                                i18n:translate="description_author_feedback">
                                 If you want to contact this author, fill in the form
@@ -231,7 +237,7 @@
                             <div class="field"
                                  tal:define="error errors/email|nothing"
                                  tal:attributes="class python:test(error, 'field error', 'field')"
-                                 tal:condition="isAnon">
+                                 tal:condition="python:isAnon or not member.getProperty('email')">
 
                                 <label for="email" i18n:translate="label_email">
                                   Email
@@ -251,21 +257,26 @@
                                        tal:attributes="value request/email|nothing"
                                        />
                             </div>
-                            <div class="field" tal:condition="isAnon">
+                            <div class="field" tal:condition="python: isAnon and security_anon_with_captcha"
+                                 tal:define="error errors/recaptcha|nothing"
+                                 tal:attributes="class python:test(error, 'field error', 'field')">
                               <label for="recaptcha_response_field"
                                      i18n:domain="collective.contactauthor"
                                      i18n:translate="label_captcha">
                                 Spam protection
                               </label>
-                                          <span class="fieldRequired" title="Required"
-                                                i18n:attributes="title email_required;"
-                                                i18n:translate="label_required">(Required)</span>
+                              <span class="fieldRequired" title="Required"
+                                    i18n:attributes="title email_required;"
+                                    i18n:translate="label_required">(Required)</span>
                               <div class="formHelp"
                                      i18n:domain="collective.contactauthor"
                                      i18n:translate="help_captcha">
-                                Copy the words you see in the image below in the propert field.
+                                Copy the words you see in the image below in the proper field.
                                 This step is needed for protect this form by spam and improper use.
                               </div>
+                              
+                              <div tal:content="error">Validation error output</div>
+                              
                               <tal:block tal:replace="structure context/@@captcha/image_tag"
                                          tal:on-error="structure string:&lt;strong&gt;CAPTCHA NOT CONFIGURED&lt;/strong&gt;"
                                          />
@@ -342,4 +353,4 @@
 
 </body>
 </html>
-		
+        

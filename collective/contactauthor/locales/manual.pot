@@ -17,13 +17,5 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.contactauthor\n"
 
-#. Default: "Copy the words you see in the image below in the propert field. This step is needed for protect this form by spam and improper use."
-#: ../skins/contact_author/author.cpt:248
-msgid "help_captcha"
+msgid "Anonymous users can send message to authors with captcha protection"
 msgstr ""
-
-#. Default: "Spam protection"
-#: ../skins/contact_author/author.cpt:240
-msgid "label_captcha"
-msgstr ""
-

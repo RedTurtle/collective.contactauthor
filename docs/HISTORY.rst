@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.1.0 (unreleased)
 ------------------
 
 - Fixed MANIFEST file [keul]
-
+- Many i18n infrastructure fixes [keul]
+- Added control panel settings [keul]
 
 1.0.0 (2012-11-12)
 ------------------
