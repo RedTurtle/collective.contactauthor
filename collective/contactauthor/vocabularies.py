@@ -6,7 +6,6 @@ except ImportError:
     # Plone 4.1
     from zope.schema.interfaces import IVocabularyFactory
 
-from Products.CMFCore.utils import getToolByName
 from collective.contactauthor import messageFactory as _
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm

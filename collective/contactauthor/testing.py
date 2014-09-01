@@ -1,20 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from zope.configuration import xmlconfig
-from zope.component import getUtility
-from plone.testing import z2
-from collective.recaptcha.settings import RecaptchaSettings
-from collective.recaptcha.settings import getRecaptchaSettings
+from collective.recaptcha.settings import IRecaptchaSettings
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
+from plone.app.testing import TEST_USER_ID
 from plone.app.testing import applyProfile
 from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import logout
 from plone.registry.interfaces import IRegistry
-from collective.recaptcha.settings import IRecaptchaSettings
+from plone.testing import z2
+from zope.component import getUtility
+from zope.configuration import xmlconfig
 
 
 class ContactAuthorLayer(PloneSandboxLayer):
