@@ -6,6 +6,7 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.contactauthor">
 
+  <five:registerPackage package="." />
   <i18n:registerTranslations directory="locales" />
   <cmf:registerDirectory name="contact_author"/>
 
@@ -26,6 +27,14 @@
       description="Anonymous users can send message to authors with captcha protection"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.contactauthor: uninstall"
+      directory="profiles/uninstall"
+      description="Remove collective.contactauthor"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <include file="upgrades.zcml" />
 
   <utility

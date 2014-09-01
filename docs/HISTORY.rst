@@ -7,6 +7,7 @@ Changelog
 - Fixed MANIFEST file [keul]
 - Many i18n infrastructure fixes [keul]
 - Added control panel settings [keul]
+- Uninstall profile added [keul]
 
 1.0.0 (2012-11-12)
 ------------------
