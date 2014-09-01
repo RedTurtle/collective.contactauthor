@@ -8,6 +8,7 @@ Changelog
 - Many i18n infrastructure fixes [keul]
 - Added control panel settings [keul]
 - Uninstall profile added [keul]
+- Added tests [keul]
 
 1.0.0 (2012-11-12)
 ------------------

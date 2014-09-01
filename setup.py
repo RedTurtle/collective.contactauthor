@@ -3,6 +3,8 @@ import os
 
 version = '1.1.0.dev0'
 
+tests_require = ['plone.app.testing', ]
+
 setup(name='collective.contactauthor',
       version=version,
       description="A customization for Plone author form: anonymous users can "
@@ -28,6 +30,8 @@ setup(name='collective.contactauthor',
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
+      tests_require=tests_require,
+      extras_require=dict(test=tests_require),
       install_requires=[
           'setuptools',
           'collective.recaptcha',
